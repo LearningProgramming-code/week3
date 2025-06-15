@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #008080;
+  height : 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  padding : 10px;
+  font-size: xx-large;
+  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+}
+.navbar {
+  display: flex;
+  gap : 40px;
+}
+.App-main {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  font-size:xx-large;
+  /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+  /* height : 200px; */
+  background-color: #b0e0e6;
+  flex : 1;
+  /* border: 20px solid red; */
+}
+.App-main > span {
+  /* display: flex; */
+  /* border: 20px solid green; */
+  height : 200px;
+  font-size: 3rem;
+  margin-top : 320px;
+  /* text-align: center; */
+}
+.Footer {
+  position: fixed;
+  bottom : 0px;
+  width: 100%;
+  height : 50px;
+  background-color: #008080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+}
+.App {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 95vh;
+  
+  font-family: Bebas Neue;
+}
+.Register {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Bebas Neue;
+  /* font-size: larger; */
+}
+.Register-body {
+  background-color: #b0e0e6;
+  flex : 1;
+  /* min-height: 100vh; */
+}
+.Register-body > form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  gap : 10px;
+  /* border : 2px solid */
+  /* flex: 1; */
+}
+.form-fields  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width : 600px;
+  font-size: 2rem;
+  /* border : 2px solid; */
+  height : 14vh;
+  padding : 10px;
+  /* gap: 20px; */
+}
+.form-fields > input {
+  border-radius: 200px;
   color: white;
-}
+  background-color: black;
+  height : 50px;
+  width : 300px;
+  padding-left : 25px;
+  font-size: large;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Register-body > p {
+   text-align: center;
+   font-size: xx-large;
+}
+.submit-button {
+  /* border: 20px solid ; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width : 200px;
+  margin-top : 60px;
+  /* border-radius: 2px; */
+  /* width : 200px; */
+}
+.submit-button > button {
+  flex : 1;
+  font-size: large;
+  /* border-radius: 20px; */
 }
