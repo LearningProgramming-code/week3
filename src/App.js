@@ -7,12 +7,25 @@ import { Link } from 'react-router-dom'
 function App() {
   const [submit, setSubmit] = useState(0);
   const [eventArray, setEventArray] = useState([]);
-  function handleSubmit(event, eventName) {
+  function handleSubmit(event, eventName, AttendeeName, EmailName) {
     event.preventDefault();
-    setSubmit(submit + 1);
-    setEventArray([...eventArray, eventName]);
-    // setEventArray
-  }
+    if (eventArray.length < 6) {
+      if (eventName !== "" && AttendeeName !== "" && EmailName !== "" && EmailName.includes("@")) {
+        setEventArray([...eventArray, [eventName, AttendeeName, EmailName]]);
+        setSubmit(submit + 1);
+        alert("Registered Successfully!");
+      }
+      else if (!EmailName.includes("@")) {
+        alert("Provide a vaild Email Address");
+      }
+      else {
+        alert("Please fill all the required details to register the event.")
+      }
+    }
+    else {
+      alert("you are NOT attending more than 6 events ✌️");
+   } 
+  } 
   return (
     <Routes>
       <Route path='/' element={<Home />} />
@@ -60,10 +73,17 @@ function MyEvents({ eventArray }) {
         <span> Event Handler </span>
         <Navbar />
       </header>
-      <main>
-        {eventArray.map((element, index) => (<span>{element} : {index}</span>))}
+      <main className="Events-body">
+        <span> Your Events are listed below :</span>
+        <div className="card-wrapper">
+          {(eventArray.length > 0 && 
+            eventArray.map((element, index) => (
+              <EventCard eventName={element[0]} index={index} AttendeeName={element[1]} EmailName={ element[2] } />
+            ))
+          ) || <h1 className = "noEvents">No events to display here!</h1>}
+        </div>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
@@ -108,27 +128,32 @@ function Register({ submit, handleSubmit }) {
               }}
             ></input>
           </div>
-          <Button submit={submit} handleSubmit={handleSubmit} eventName = {eventName} />
+          <Button submit={submit} handleSubmit={handleSubmit} eventName = {eventName} AttendeeName = {AttendeeName} EmailName = {EmailName} />
         </form>
-        <button
-          onClick={() => {
-            alert(`This is the ${eventName}, ${EmailName} , ${AttendeeName}`);
-          }}
-        >
-          Hello
-        </button>
       </main>
       <Footer />
     </div>
   );
 } 
-function Button({ submit, handleSubmit, eventName }) {
+function Button({ submit, handleSubmit, eventName, AttendeeName, EmailName }) {
   return (
     <div className="submit-button">
-      <button onClick={(e) => {handleSubmit(e,eventName)}}>
+      <button onClick={(e) => {handleSubmit(e,eventName,AttendeeName,EmailName)}}>
         Submit <p>Submitted {submit} times</p>
       </button>
     </div>
   );
 }
+
+function EventCard({ eventName, index, AttendeeName, EmailName }) {
+  return (
+    <div  className = "EventCard">
+      <p>  {index + 1}. Registered for {eventName}</p>
+      <p>Registration was done by {AttendeeName}</p>
+      <p>Email used for registration : {EmailName}</p>
+    </div>
+  )
+}
+
 export default App;
+
