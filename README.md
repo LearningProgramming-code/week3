@@ -1,1 +1,9 @@
-This is a web app
+This is a web app used to register your events
+The Home tab is static and is a landing page. Visit Register page to register your event
+Make sure to include "@" in your email or else your submission will be denied.
+Also fill all the fields, it will reject otherwise.
+To check out your events visit My Events page.
+![alt text](Assets/image3.png)
+![alt text](Assets/image.png)
+![alt text](Assets/image-1.png)
+![alt text](Assets/image-2.png)
